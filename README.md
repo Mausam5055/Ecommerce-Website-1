@@ -55,6 +55,8 @@
 
 ## 🏗️ System Architecture
 
+### High-Level Architecture
+
 <div align="center">
 
 ```mermaid
@@ -78,6 +80,148 @@ graph TD
 ```
 
 <p><em>High-Level System Architecture</em></p>
+</div>
+
+### Component Interaction Flow
+
+<div align="center">
+
+```mermaid
+graph LR
+    A[Customer Frontend] -->|API Requests| B[Backend API]
+    C[Admin Dashboard] -->|API Requests| B
+    B -->|CRUD Operations| D[(MongoDB)]
+    B -->|Image Storage| E[Cloudinary]
+    B -->|Payment Processing| F[Stripe]
+    D -->|Data Response| B
+    E -->|Image URLs| B
+    F -->|Payment Confirmation| B
+    B -->|API Responses| A
+    B -->|API Responses| C
+    
+    style A fill:#4CAF50,stroke:#388E3C
+    style B fill:#FF9800,stroke:#E65100
+    style C fill:#2196F3,stroke:#0D47A1
+    style D fill:#F44336,stroke:#B71C1C
+    style E fill:#9C27B0,stroke:#4A148C
+    style F fill:#607D8B,stroke:#263238
+```
+
+<p><em>Component Interaction and Data Flow</em></p>
+</div>
+
+### Authentication Flow
+
+<div align="center">
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend
+    participant Backend
+    participant Database
+    
+    User->>Frontend: Enter credentials
+    Frontend->>Backend: POST /api/user/login
+    Backend->>Database: Validate credentials
+    Database-->>Backend: User data
+    Backend->>Backend: Generate JWT Token
+    Backend-->>Frontend: JWT Token
+    Frontend->>Frontend: Store Token
+    Frontend-->>User: Redirect to dashboard
+```
+
+<p><em>User Authentication Flow</em></p>
+</div>
+
+### Order Processing Workflow
+
+<div align="center">
+
+```mermaid
+flowchart TD
+    A[User Places Order] --> B[Frontend Sends Order Data]
+    B --> C[Backend Validates Order]
+    C --> D{Payment Method}
+    D -->|Stripe| E[Process Payment]
+    D -->|Other| F[Process Payment]
+    E --> G{Payment Success?}
+    F --> G
+    G -->|Yes| H[Create Order in DB]
+    G -->|No| I[Return Payment Error]
+    H --> J[Update Inventory]
+    J --> K[Send Confirmation Email]
+    K --> L[Return Order Confirmation]
+    L --> M[User Receives Confirmation]
+    
+    style A fill:#4CAF50,stroke:#388E3C
+    style B fill:#2196F3,stroke:#0D47A1
+    style C fill:#FF9800,stroke:#E65100
+    style D fill:#9C27B0,stroke:#4A148C
+    style G fill:#FF9800,stroke:#E65100
+    style H fill:#F44336,stroke:#B71C1C
+    style I fill:#F44336,stroke:#B71C1C
+```
+
+<p><em>Order Processing Workflow</em></p>
+</div>
+
+### Data Model Relationships
+
+<div align="center">
+
+```mermaid
+erDiagram
+    USER ||--o{ ORDER : places
+    USER ||--o{ CART : has
+    ORDER ||--o{ ORDER_ITEM : contains
+    PRODUCT ||--o{ ORDER_ITEM : "included in"
+    PRODUCT ||--o{ CART : "added to"
+    PRODUCT }|--o{ CATEGORY : belongs_to
+    USER {
+        string id
+        string name
+        string email
+        string password
+        string role
+    }
+    PRODUCT {
+        string id
+        string name
+        string description
+        float price
+        string[] images
+        string category_id
+        int stock
+    }
+    CATEGORY {
+        string id
+        string name
+        string description
+    }
+    CART {
+        string id
+        string user_id
+        string product_id
+        int quantity
+    }
+    ORDER {
+        string id
+        string user_id
+        float total_amount
+        string status
+        datetime created_at
+    }
+    ORDER_ITEM {
+        string id
+        string order_id
+        string product_id
+        int quantity
+        float price
+    }
+```
+
+<p><em>Database Entity Relationships</em></p>
 </div>
 
 ---
