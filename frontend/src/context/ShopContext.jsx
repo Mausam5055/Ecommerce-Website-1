@@ -11,7 +11,7 @@ const ShopContextProvider = (props) => {
   const [token,setToken]= useState('');
   const navigate = useNavigate();
 const backendUrl =import.meta.env.VITE_BACKEND_URL
-  const currency = "$";
+  const currency = "₹";
   const delivery_fee = 10;
   const [products,setProducts]=useState([]);
   useEffect(() => {
@@ -70,6 +70,7 @@ const backendUrl =import.meta.env.VITE_BACKEND_URL
           }
         } catch (error) {
           // INFO: Error Handling
+          console.log(error);
         }
       }
     }
@@ -78,7 +79,7 @@ const backendUrl =import.meta.env.VITE_BACKEND_URL
 
   const updateQuantity = async (itemId, size, quantity) => {
     if (quantity === 0) {
-      const productData = products.find((product) => product._id === itemId);
+      // const productData = products.find((product) => product._id === itemId);
       toast.success("Item Removed From The Cart");
     }
 
@@ -107,7 +108,9 @@ const backendUrl =import.meta.env.VITE_BACKEND_URL
           if (cartItems[items][item] > 0) {
             totalAmount += itemInfo.price * cartItems[items][item];
           }
-        } catch (error) {}
+        } catch (error) {
+          console.log(error);
+        }
       }
     }
     return totalAmount;

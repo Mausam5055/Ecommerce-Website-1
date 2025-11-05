@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { backendUrl, currency } from '../App'
 import { toast } from 'react-toastify'
@@ -95,8 +95,7 @@ const Orders = ({ token }) => {
               <p>Date : {new Date(order.date).toLocaleDateString()}</p>
             </div>
             <p className="text-sm sm-text-[15px]">
-              {currency}
-              {order.amount} $
+              {currency(order.amount)}
             </p>
             <select
   onChange={(event) => statusHandler(event, order._id)}
@@ -104,7 +103,7 @@ const Orders = ({ token }) => {
   className="p-2 font-semibold text-black bg-white border border-gray-300 rounded"
 >
   <option value="Order Placed">Order Placed</option>
-  <option value="Paking">Paking</option>
+  <option value="Packing">Packing</option>
   <option value="Shipped">Shipped</option>
   <option value="Out for delivery">Out for delivery</option>
   <option value="Delivered">Delivered</option>

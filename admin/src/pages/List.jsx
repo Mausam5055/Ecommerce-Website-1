@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { backendUrl, currency } from "../App";
 import { toast } from "react-toastify";
@@ -17,7 +17,7 @@ const List = ({ token }) => {
       }
     } catch (error) {
       console.error(error);
-      toast.error(response.data.message);
+      toast.error(error.message);
     }
   };
 
@@ -37,7 +37,7 @@ const List = ({ token }) => {
       }
     } catch (error) {
       console.error(error);
-      toast.error(response.data.message);
+      toast.error(error.message);
     }
   };
 

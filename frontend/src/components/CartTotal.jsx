@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from './Title';
 
@@ -17,7 +17,7 @@ const CartTotal = () => {
                     Sub Total
                 </p>
                 <p className='text-lg font-medium'>
-                    {currency}&nbsp;{getCartAmount().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    {currency}{getCartAmount().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
             </div>
             <hr />
@@ -26,7 +26,7 @@ const CartTotal = () => {
                     Shipping Fee
                 </p>
                 <p className='text-lg font-medium'>
-                    {currency}&nbsp;{delivery_fee.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    {currency}{delivery_fee.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
             </div>
             <hr />
@@ -35,7 +35,7 @@ const CartTotal = () => {
                     Total Amount
                 </p>
                 <p className='text-2xl font-semibold'>
-                    {currency}&nbsp;{(getCartAmount() === 0 ? 0 : getCartAmount() + delivery_fee).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    {currency}{(getCartAmount() === 0 ? 0 : getCartAmount() + delivery_fee).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
             </div>
         </div>

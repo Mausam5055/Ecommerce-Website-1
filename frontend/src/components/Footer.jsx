@@ -34,14 +34,14 @@ const Footer = () => {
             <div>
                 <p className='mb-5 text-xl font-medium'>GET IN TOUCH</p>
                 <ul className='flex flex-col gap-1 text-gray-600'>
-                    <li>+11-558-669-447</li>
-                    <li>contact.trendify@info.com</li>
+                    <li>+91-863-854-5574</li>
+                    <li>mausam03.verecl.app</li>
                 </ul>
             </div>
         </div>
         <div>
             <hr />
-            <p className='py-5 text-sm text-center'>Copyright 2024 Trendify. All rights reserved.</p>
+            <p className='py-5 text-sm text-center'>Copyright 2025 Trendify. All rights reserved.</p>
         </div>
     </div>
   )
