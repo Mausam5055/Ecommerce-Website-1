@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#EEF2FF" />
+  
+  <!-- Shopping bag base -->
+  <path d="M60 70 L60 140 Q60 150 70 150 L130 150 Q140 150 140 140 L140 70 Z" fill="#4F46E5" />
+  
+  <!-- Bag opening -->
+  <path d="M50 70 L150 70 L140 60 L60 60 Z" fill="#6366F1" />
+  
+  <!-- Handle -->
+  <path d="M80 60 Q80 40 100 40 Q120 40 120 60" fill="none" stroke="#4F46E5" stroke-width="8" stroke-linecap="round" />
+  
+  <!-- Wheels -->
+  <circle cx="70" cy="150" r="8" fill="#1E293B" />
+  <circle cx="130" cy="150" r="8" fill="#1E293B" />
+  
+  <!-- Brand text -->
+  <text x="100" y="175" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#4F46E5" text-anchor="middle">Trendify</text>
+</svg>

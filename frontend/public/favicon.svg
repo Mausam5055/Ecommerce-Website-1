@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Shopping bag base -->
+  <path d="M30 35 L30 70 Q30 75 35 75 L65 75 Q70 75 70 70 L70 35 Z" fill="#4F46E5" />
+  
+  <!-- Bag opening -->
+  <path d="M25 35 L75 35 L70 30 L30 30 Z" fill="#6366F1" />
+  
+  <!-- Handle -->
+  <path d="M40 30 Q40 20 50 20 Q60 20 60 30" fill="none" stroke="#4F46E5" stroke-width="4" stroke-linecap="round" />
+  
+  <!-- Shopping cart icon -->
+  <circle cx="35" cy="75" r="4" fill="#1E293B" />
+  <circle cx="65" cy="75" r="4" fill="#1E293B" />
+  
+  <!-- Plus icon inside bag -->
+  <path d="M50 45 L50 60 M42.5 52.5 L57.5 52.5" stroke="white" stroke-width="3" stroke-linecap="round" />
+</svg>
