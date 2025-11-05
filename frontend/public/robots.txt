@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://singlevendor-ecommerce-frontend.vercel.app/sitemap.xml
